@@ -35,7 +35,7 @@ class CategoryService {
 
     //read 
     getCategoryById(id) {
-        return this.categories.find((category) => category.id == id)
+        return this.categories.find((category) => category.id == id);
     }
 }
 
@@ -63,9 +63,14 @@ const productsList = new ProductService();
 
 function createCategory() {
     const categoryName = "Candies";
+    const categoryName1 = "shoes";
+    const categoryName2 = "books";
     //document.getElementById
+    console.log("categorias criadas!")
 
     categoriesList.addCategory(categoryName);
+    categoriesList.addCategory(categoryName1);
+    categoriesList.addCategory(categoryName2);
 
     /* console.log(categoriesList.categories) */
 }
@@ -79,4 +84,9 @@ function createProduct() {
 
     console.log(productsList.products);
 
+}
+
+function findCategory(id){
+    const category = categoriesList.getCategoryById(id);
+    console.log(category.name);
 }
