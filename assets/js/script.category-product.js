@@ -80,17 +80,24 @@ const categoriesList = new CategoryService();
 const productsList = new ProductService();
 
 function createCategory() {
-    const categoryName = "Candies";
+    const categoryName = document.getElementById("categoryNameInput").value;
+
+    categoriesList.addCategory(categoryName);
+
+    clearFields();
+
+
+/*     const categoryName = "Candies";
     const categoryName1 = "shoes";
-    const categoryName2 = "books";
+    const categoryName2 = "books"; */
     //document.getElementById
-    console.log("categorias criadas!")
+  /*   console.log("categorias criadas!")
 
     categoriesList.addCategory(categoryName);
     categoriesList.addCategory(categoryName1);
     categoriesList.addCategory(categoryName2);
-
-    /* console.log(categoriesList.categories) */
+ */
+     console.log(categoriesList.categories) 
 }
 
 function createProduct() {
@@ -136,4 +143,9 @@ function findProductById(id){
     const product = productsList.getProductById(id);
 
     console.log(product);
+}
+
+function clearFields(){
+document.getElementById("categoryNameInput").value = "";
+
 }
