@@ -38,9 +38,18 @@ class CategoryService {
         return this.categories.find((category) => category.id == id);
     }
     //update
-    updateCategory(id, name){
+    updateCategory(id, name) {
         const category = this.getCategoryById(id);
         category.name = name;
+    }
+    //delete
+    //esse id é o parametro q esta dentro do () do onclick
+    deleteCategory(id) {
+        const category = this.getCategoryById(id);
+        const index = this.categories.indexOf(category);
+        
+
+        this.categories.splice(index, 1)
     }
 }
 
@@ -91,13 +100,13 @@ function createProduct() {
 
 }
 
-function findCategory(id){
+function findCategory(id) {
     const category = categoriesList.getCategoryById(id);
     console.log(category.name);
 }
 
-function editCategory(id, name){
+function editCategory(id, name) {
     categoriesList.updateCategory(id, name);
 
-     console.log(categoriesList.categories);
+    console.log(categoriesList.categories);
 }
