@@ -17,13 +17,14 @@ class Product {
     }
 }
 
+//guardas todas categorias e cria
 class CategoryService {
     constructor() {
         this.categories = [];
         this.nextCategoryId = 1;
     }
 
-    addCategory(name){
+    addCategory(name) {
         const id = this.nextCategoryId;
         this.nextCategoryId++;
 
@@ -31,14 +32,51 @@ class CategoryService {
         this.categories.push(category);
 
     }
+
+    //read 
+    getCategoryById(id) {
+        return this.categories.find((category) => category.id == id)
+    }
+}
+
+class ProductService {
+    constructor() {
+        this.products = [];
+        this.nextProductId = 1;
+
+    }
+    addProduct(name, price, category) {
+        const id = this.nextProductId;
+        this.nextProductId++;
+
+        const product = new Product(id, name, price, category);
+
+        this.products.push(product);
+        category.products.push(product)
+
+    }
+
 }
 
 const categoriesList = new CategoryService();
+const productsList = new ProductService();
 
-function createCategory(){
+function createCategory() {
     const categoryName = "Candies";
+    //document.getElementById
 
     categoriesList.addCategory(categoryName);
 
-    console.log(categoriesList.categories)
+    /* console.log(categoriesList.categories) */
+}
+
+function createProduct() {
+    const productName = "Choco";
+    const productPrice = 0.50;
+    const productCategory = categoriesList.categories[0]; //[0] pq pegou a primeira  categoria criada
+
+    productsList.addProduct(productName, productPrice, productCategory);
+
+    console.log(productsList.products);
+
 }
