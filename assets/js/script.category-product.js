@@ -69,6 +69,10 @@ class ProductService {
         category.products.push(product)
 
     }
+    //read
+    getProductById(id){
+        return this.products.find((product) => product.id == id );
+    }
 
 }
 
@@ -91,10 +95,21 @@ function createCategory() {
 
 function createProduct() {
     const productName = "Choco";
+    const productName1 = "snaker";
+    const productName2 = "hp";
+
     const productPrice = 0.50;
+    const productPrice1 = 100;
+    const productPrice2 = 50;
     const productCategory = categoriesList.categories[0]; //[0] pq pegou a primeira  categoria criada
+    const productCategory1 = categoriesList.categories[1];
+    const productCategory2 = categoriesList.categories[2];
 
     productsList.addProduct(productName, productPrice, productCategory);
+    
+    productsList.addProduct(productName1, productPrice1, productCategory1);
+    
+    productsList.addProduct(productName2, productPrice2, productCategory2);
 
     console.log(productsList.products);
 
@@ -115,4 +130,10 @@ function deleteCategory(id){
     categoriesList.deleteCategory(id);
 
     console.log(categoriesList.categories)
+}
+
+function findProductById(id){
+    const product = productsList.getProductById(id);
+
+    console.log(product);
 }

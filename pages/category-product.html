@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <script src="../assets/js/script.category-product.js"></script>
@@ -7,12 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>category-product</title>
 </head>
-<body>
- <button onclick="createCategory()">criar categoria </button>
- <button onclick="createProduct()">criar produto </button>
- <button onclick="findCategory(1)">encontrar categoria </button>
- <button onclick="editCategory(1, 'Doces')">atualizar</button>
- <button onclick="deleteCategory(2)">delete</button>
 
+<body>
+    <div>
+        <h2>categorias</h2>
+        <button onclick="createCategory()">criar categoria </button>
+        <button onclick="createProduct()">criar produto </button>
+        <button onclick="findCategory(1)">encontrar categoria </button>
+        <button onclick="editCategory(1, 'Doces')">atualizar</button>
+        <button onclick="deleteCategory(2)">delete</button>
+        
+    </div>
+
+    <div>
+        <h2>produtos</h2>
+
+        <button onclick="createProduct()">criar produto</button>
+        <button onclick="findProductById(1)">encontrar</button>
+    </div>
 </body>
+
 </html>
